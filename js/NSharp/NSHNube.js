@@ -1038,14 +1038,17 @@ var nube = (function () {
 		var html = "";
 		if (e && e.nube) {
 			var n = e.nube;
+			var btnCompartir = rolDe(e) === "dueno"
+				? ' · <button type="button" data-nsh-compartir="1"><i class="fa fa-share-alt"></i> Compartir</button>'
+				: "";
 			if (!puedeEditar(e)) { html = '<i class="fa fa-eye"></i> Solo lectura'; }
 			else if (n.error) { html = '<i class="fa fa-exclamation-triangle"></i> No se pudo guardar en la cuenta'; }
 			else if (n.reloj || n.subiendo) {
-				html = navigator.onLine === false
+				html = (navigator.onLine === false
 					? '<i class="fa fa-wifi"></i> Sin conexión: se guarda al volver'
-					: '<i class="fa fa-refresh fa-spin"></i> Guardando…';
+					: '<i class="fa fa-refresh fa-spin"></i> Guardando…') + btnCompartir;
 			}
-			else { html = '<i class="fa fa-cloud"></i> Guardado en la cuenta'; }
+			else { html = '<i class="fa fa-cloud"></i> Guardado en la cuenta' + btnCompartir; }
 		} else if (e) {
 			html = '<i class="fa fa-laptop"></i> Proyecto local' + (cuenta.configurada()
 				? ' · <button type="button" data-nsh-guardar="1"><i class="fa fa-cloud-upload"></i> Guardar en la cuenta</button>'
@@ -1164,6 +1167,7 @@ var nube = (function () {
 		if (pie) {
 			pie.addEventListener("click", function (ev) {
 				if (ev.target.closest("[data-nsh-guardar]")) { guardarEnCuenta(); }
+				if (ev.target.closest("[data-nsh-compartir]")) { compartir.abrir(); }
 			});
 		}
 		var b = document.getElementById("nshGuardarCuentaBtn");
