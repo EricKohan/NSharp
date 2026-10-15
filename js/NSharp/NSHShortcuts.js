@@ -2,54 +2,54 @@ var atajos = (function () {
 	var o = {};
 
 	var AYUDA = [
-		["Deshacer / Rehacer", "Ctrl+Z  /  Ctrl+Y"],
-		["Copiar / Cortar / Pegar bloques", "Ctrl+C  /  Ctrl+X  /  Ctrl+V"],
-		["Duplicar bloque", "Ctrl+D"],
-		["Seleccionar todos los bloques", "Ctrl+A"],
-		["Agregar a la selección", "Ctrl+Click  /  casilla"],
-		["Seleccionar un rango", "Shift+Click"],
-		["Eliminar lo seleccionado", "Supr  o  Backspace"],
-		["Quitar la selección", "Esc"],
-		["Elegir varios métodos", "Ctrl+Click / Shift+Click"],
-		["Buscar en el proyecto", "Ctrl+F"],
-		["Nuevo método", "Ctrl+N"],
-		["Renombrar el método actual", "F2"],
-		["Cambiar de proyecto", "Ctrl+Tab  /  Ctrl+1..8"],
-		["Cambiar entre la vista NS y la UML", "Ctrl+Shift+U"],
-		["Guardar (.nsplus) / Abrir", "Ctrl+S  /  Ctrl+O"],
-		["Zoom", "Ctrl+rueda  o  pellizco"],
-		["Zoom 100% / Ajustar", "Ctrl+0  /  Ctrl+9"],
-		["Mover el lienzo", "Espacio+arrastrar  o  botón del medio"],
-		["Cambiar entre tema claro y oscuro", "Ctrl+Shift+D"],
-		["Mostrar siempre las casillas", "Ctrl+Shift+C"],
-		["Abrir esta ayuda", "F1"]
+		["Deshacer / Rehacer", "[Ctrl]+[Z]  /  [Ctrl]+[Y]"],
+		["Copiar / Cortar / Pegar bloques", "[Ctrl]+[C]  /  [Ctrl]+[X]  /  [Ctrl]+[V]"],
+		["Duplicar bloque", "[Ctrl]+[D]"],
+		["Seleccionar todos los bloques", "[Ctrl]+[A]"],
+		["Agregar a la selección", "[Ctrl]+[Click]  /  [Casilla]"],
+		["Seleccionar un rango", "[Shift]+[Click]"],
+		["Eliminar lo seleccionado", "[Supr]  o  [Backspace]"],
+		["Quitar la selección", "[Esc]"],
+		["Elegir varios métodos", "[Ctrl]+[Click] / [Shift]+[Click]"],
+		["Buscar en el proyecto", "[Ctrl]+[F]"],
+		["Nuevo método", "[Ctrl]+[N]"],
+		["Renombrar el método actual", "[F2]"],
+		["Cambiar de proyecto", "[Ctrl]+[Tab]  /  [Ctrl]+[1..8]"],
+		["Cambiar entre la vista NS y la UML", "[Ctrl]+[Shift]+[U]"],
+		["Guardar (.nsplus) / Abrir", "[Ctrl]+[S]  /  [Ctrl]+[O]"],
+		["Zoom", "[Ctrl]+[Rueda]  o  [Pellizco]"],
+		["Zoom 100% / Ajustar", "[Ctrl]+[0]  /  [Ctrl]+[9]"],
+		["Mover el lienzo", "[Espacio]+[Arrastrar]  o  [Botón del medio]"],
+		["Cambiar entre tema claro y oscuro", "[Ctrl]+[Shift]+[D]"],
+		["Mostrar siempre las casillas", "[Ctrl]+[Shift]+[C]"],
+		["Abrir esta ayuda", "[F1]"]
 	];
 
 	var AYUDA_UML = [
-		["Deshacer / Rehacer", "Ctrl+Z  /  Ctrl+Y"],
-		["Nueva clase / Nueva nota", "C  /  N"],
-		["Relacionar: elegí el tipo y tocá las dos clases", "1  a  7"],
-		["Relacionar con el último tipo elegido", "R"],
+		["Deshacer / Rehacer", "[Ctrl]+[Z]  /  [Ctrl]+[Y]"],
+		["Nueva clase / Nueva nota", "[C]  /  [N]"],
+		["Relacionar: elegí el tipo y tocá las dos clases", "[1 a 7]"],
+		["Relacionar con el último tipo elegido", "[R]"],
 		["Seleccionar una zona", "Arrastrar sobre el fondo"],
-		["Sumar o quitar de la selección", "Ctrl+Click  /  Shift+Click"],
-		["Seleccionar todo", "Ctrl+A"],
-		["Editar el texto de lo elegido", "Enter  o  F2"],
-		["Mover lo elegido", "Flechas  (Shift = de a 1 px)"],
-		["Pasar al siguiente elemento", "Tab  /  Shift+Tab"],
-		["Duplicar lo elegido", "Ctrl+D  o  doble click"],
-		["Eliminar lo elegido", "Supr  o  Backspace"],
-		["Abrir un .uxf de UMLet", "Ctrl+O  o  arrastralo"],
-		["Generar las clases en el proyecto", "Ctrl+G"],
-		["Mover el plano", "Espacio+arrastrar  o  botón del medio"],
-		["Zoom", "Ctrl+rueda  o  pellizco"],
-		["Zoom 100% / Ver todo", "Ctrl+0  /  Ctrl+9"],
-		["Cancelar o deseleccionar", "Esc"],
-		["Agregar vértice a una flecha", "Doble click o Shift+Click"]
+		["Sumar o quitar de la selección", "[Ctrl]+[Click]  /  [Shift]+[Click]"],
+		["Seleccionar todo", "[Ctrl]+[A]"],
+		["Editar el texto de lo elegido", "[Enter]  o  [F2]"],
+		["Mover lo elegido", "[Flechas]  ([Shift] = de a 1 px)"],
+		["Pasar al siguiente elemento", "[Tab]  /  [Shift]+[Tab]"],
+		["Duplicar lo elegido", "[Ctrl]+[D]  o  [Doble click]"],
+		["Eliminar lo elegido", "[Supr]  o  [Backspace]"],
+		["Abrir un .uxf de UMLet", "[Ctrl]+[O]  o  [Arrastralo]"],
+		["Generar las clases en el proyecto", "[Ctrl]+[G]"],
+		["Mover el plano", "[Espacio]+[Arrastrar]  o  [Botón del medio]"],
+		["Zoom", "[Ctrl]+[Rueda]  o  [Pellizco]"],
+		["Zoom 100% / Ver todo", "[Ctrl]+[0]  /  [Ctrl]+[9]"],
+		["Cancelar o deseleccionar", "[Esc]"],
+		["Agregar vértice a una flecha", "[Doble click] o [Shift]+[Click]"]
 	];
 
 	function tabla(filas) {
 		return "<table>" + filas.map(function (x) {
-			return "<tr><td>" + x[0] + "</td><td><kbd>" + x[1].split("  ").join("</kbd> <kbd>") + "</kbd></td></tr>";
+			return "<tr><td>" + x[0] + "</td><td>" + x[1].replaceAll("[", "<kbd>").replaceAll("]" ,"</kbd>") + "</td></tr>";
 		}).join("") + "</table>";
 	}
 
